@@ -29,6 +29,12 @@ The `scripts/docker-build.sh` script will:
 
 Running `scripts/build.sh` directly will not work unless you're running a Debian-based distro and have all necessary dependencies installed. This repo is designed to avoid having to configure the building environment on your Linux installation.
 
+*If you get an error like `[...] /repo/helium-chromium/utils/downloads.py: No such file or directory`' while running `scripts/docker-build.sh`, try running:*
+```
+git submodule update --init --recursive
+```
+*from this repo's root. This should fix any issues with missing files inside the `helium-chromium` copy in use by the build process.*
+
 ### Packaging
 After building, run `scripts/package.sh`. Alternatively, you can run `package/docker-package.sh` to build inside a Docker image.
 
